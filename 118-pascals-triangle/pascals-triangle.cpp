@@ -2,11 +2,9 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> triangle;
-        int rowCount=0;
         for (int i=0;i<numRows;i++)
         {
             vector<int>row(i+1,1);
-            rowCount++;
             if (i==0 || i==1)
             {
                 triangle.push_back(row);
