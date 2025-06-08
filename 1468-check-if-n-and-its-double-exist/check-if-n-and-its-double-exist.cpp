@@ -1,15 +1,15 @@
 class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
-        multiset<int> set;
-        for (int i=0;i<arr.size();i++)
-            if (arr[i]%2==0)
-                set.insert(arr[i]/2);
-        for (int i=0;i<arr.size();i++)
-            if (set.count(arr[i]) && arr[i]!=0 && set.count(0)<=1)
-                return true;
-            else if (set.count(0)>1)
-                return true;
+        unordered_set<int> halves;
+        int zeroCount=0;
+        for (int x:arr)
+        {
+            if (x==0) zeroCount++;
+            if (x%2==0) halves.insert(x/2);
+        }
+        if (zeroCount>1) return true;
+        for (int x:arr) if (x!=0 && halves.count(x)) return true;
         return false;
     }
 };
