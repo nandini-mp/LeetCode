@@ -1,13 +1,12 @@
 class Solution {
 public:
     int countAsterisks(string s) {
-        int chars=0;
-        stack<int> st;
+        int chars=0,full=0;
         for (char c:s)
         {
-            if (c=='|' && st.empty()) st.push(c);
-            else if (c=='|') st.pop();
-            else if (c=='*' && st.empty()) chars++;
+            if (c=='|' && full==0) full=1;
+            else if (c=='|') full=0;
+            else if (c=='*' && full==0) chars++;
         }
         return chars;
     }
