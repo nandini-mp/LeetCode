@@ -7,12 +7,8 @@ public:
         while (l!=s.size() && r!=g.size())
         {
             if (g[r]<=s[l])
-            {
-                l++;
                 r++;
-            }
-            else if (g[r]>s[l])
-                l++;
+            l++;
         }
         return r;
     }
