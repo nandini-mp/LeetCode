@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int frogJump(vector<int>& heights) {
+        int n=heights.size();
+        int a=0,b=0;
+        for (int i=1;i<n;i++)
+        {
+            int fs=b+abs(heights[i]-heights[i-1]);
+            int ss=INT_MAX;
+            if (i>1) ss=a+abs(heights[i]-heights[i-2]);
+            int c=min(fs,ss);
+            a=b;
+            b=c;
+        }       
+        return b; 
+    }
+};
